@@ -1,0 +1,11 @@
+disabled_rules:
+  # - opening_brace
+  # - colon
+  # - comma
+  # - control_statement
+  # - force_cast
+   - trailing_whitespace
+
+opt_in_rules:
+   - empty_count
+   - missing_docs
