@@ -3,7 +3,7 @@ import Foundation
 ///
 /// boom ErrorType
 ///
-public class BoomError: ErrorType {
+public struct BoomError: ErrorType {
     public var code: Int?;
     public var message: String = "";
     
@@ -18,7 +18,9 @@ public class BoomError: ErrorType {
     ///
     /// convenience bool indicating status code >= 500
     ///
-    public var isServer: Bool = false
+    public var isServer: Bool {
+        return code >= 500
+    }
     
     ///
     /// constructor
@@ -29,12 +31,6 @@ public class BoomError: ErrorType {
         self.code = code
         
         self._code = code
-        
-        if code >= 500 {
-            self.isBoom = true
-        } else {
-            self.isBoom = false
-        }
         
         self.message = message;
     }
